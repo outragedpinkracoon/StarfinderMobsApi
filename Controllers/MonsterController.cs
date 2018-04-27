@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace StarfinderMobsApi.Controllers
 {
@@ -8,6 +10,8 @@ namespace StarfinderMobsApi.Controllers
   {
     // GET api/values
     [HttpGet]
-    public IEnumerable<string> Get() => new string[] { "monster1", "monster2" };
+    public string Get() {
+      return System.IO.File.ReadAllText("data/monsters.json");
+    }
   }
 }
